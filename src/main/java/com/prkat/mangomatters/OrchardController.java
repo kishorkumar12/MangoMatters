@@ -22,12 +22,12 @@ public class OrchardController {
 
     }
 
-    @PostMapping(path = "/addOrchad", consumes = "application/json", produces = "application/json")
+    /*@PostMapping(path = "/addOrchad", consumes = "application/json", produces = "application/json")
     public OrchardDto saveOrchardDetails(@RequestBody OrchardDto orchard) {
         if (null != orchard) {
            // return orchardServiceIml.saveOrchardService(orchard);
         }
 
 
-    }
+    }*/
 }
