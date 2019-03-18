@@ -1,13 +1,11 @@
 package com.prkat.mangomatters;
-
-import com.prkat.mangomatters.model.OrchardDto;
 import com.prkat.mangomatters.model.Orchard;
 import com.prkat.mangomatters.service.OrchardServiceIml;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class OrchardController {
@@ -19,15 +17,23 @@ public class OrchardController {
 
         return "ShowListofMangos";
 
-
     }
 
-    /*@PostMapping(path = "/addOrchad", consumes = "application/json", produces = "application/json")
-    public OrchardDto saveOrchardDetails(@RequestBody OrchardDto orchard) {
-        if (null != orchard) {
-           // return orchardServiceIml.saveOrchardService(orchard);
-        }
+    @PostMapping(path = "/orchard", consumes = "application/json", produces = "application/json")
+    public HttpStatus addOrchard(@RequestBody Orchard orchard) {
 
+        return  orchardServiceIml.addOrchard(orchard)?HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
+    }
 
-    }*/
-}
+    @GetMapping(path = "/allorchards")
+    public List<Orchard> getAll(){
+        return orchardServiceIml.getAllOrchidDetails();
+    }
+
+    @DeleteMapping(path="/orchard/{id}")
+    public HttpStatus deleteOrchard(@PathVariable Orchard orchardId){
+      orchardServiceIml.deleteOrchard(orchardId);
+        return HttpStatus.NO_CONTENT;
+    }
+
+    }

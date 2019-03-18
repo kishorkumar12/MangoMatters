@@ -3,18 +3,19 @@ package com.prkat.mangomatters.model;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-import java.time.LocalTime;
+import java.util.Date;
+import java.util.List;
 
 @Component
 public class OrchardDto {
-    private  int id;
+    private  Long orchardId;
     private String name;
     private String address;
-    // private List<Variety> variety;
+    private List<Variety> variety;
     private int quantity;
     private BigDecimal price;
-    private LocalTime harvestingtime;
-    private LocalTime deliverytime;
+    private Date harvestingtime;
+    private Date deliverytime;
     private int numberOfShares;
     public String getName() {
         return name;
@@ -48,19 +49,19 @@ public class OrchardDto {
         this.price = price;
     }
 
-    public LocalTime getHarvestingtime() {
+    public Date getHarvestingtime() {
         return harvestingtime;
     }
 
-    public void setHarvestingtime(LocalTime harvestingtime) {
+    public void setHarvestingtime(Date harvestingtime) {
         this.harvestingtime = harvestingtime;
     }
 
-    public LocalTime getDeliverytime() {
+    public Date getDeliverytime() {
         return deliverytime;
     }
 
-    public void setDeliverytime(LocalTime deliverytime) {
+    public void setDeliverytime(Date deliverytime) {
         this.deliverytime = deliverytime;
     }
 
@@ -71,12 +72,19 @@ public class OrchardDto {
     public void setNumberOfShares(int numberOfShares) {
         this.numberOfShares = numberOfShares;
     }
-    public int getId() {
-        return id;
+    public Long getOrchardId() {
+        return orchardId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(Long orchardId) {
+        this.orchardId = orchardId;
+    }
+    public List<Variety> getVariety() {
+        return variety;
+    }
+
+    public void setVariety(List<Variety> variety) {
+        this.variety = variety;
     }
 
 }

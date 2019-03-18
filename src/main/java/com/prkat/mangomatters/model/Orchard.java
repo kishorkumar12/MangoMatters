@@ -2,30 +2,30 @@ package com.prkat.mangomatters.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
+
 @Entity
 @Table(name="Orchard")
 public class Orchard {
     @Id
     @GeneratedValue
-    @Column(name="id")
-    private  int id;
+    @Column(name="orchardId")
+    private  Long orchardId;
     @Column(name="name")
-    private String name;
+    private String orchardName;
     @Column(name="address")
     private String address;
-   // @OneToMany(targetEntity=Student.class, mappedBy="college", fetch=FetchType.EAGER)
-  //@OneToMany(targetEntity=Variety.class, mappedBy="Orchard", fetch=FetchType.EAGER)
-   // private List<Variety> variety;
+    @OneToMany(targetEntity=Variety.class, mappedBy="orchard", fetch=FetchType.EAGER)
+    private List<Variety> variety;
     @Column(name="quantity")
     private int quantity;
     @Column(name="price")
     private BigDecimal price;
     @Column(name="harvestingtime")
-    private LocalTime harvestingtime;
+    private Date harvestingtime;
     @Column(name="deliverytime")
-    private LocalTime deliverytime;
+    private Date deliverytime;
     @Column(name="numberOfShares")
     private int numberOfShares;
 
@@ -37,13 +37,13 @@ public class Orchard {
         this.address = address;
     }
 
-   /* public List<Variety> getVariety() {
+    public List<Variety> getVariety() {
         return variety;
     }
-*/
-    /*public void setVariety(List<Variety> variety) {
+
+    public void setVariety(List<Variety> variety) {
         this.variety = variety;
-    }*/
+    }
 
     public int getQuantity() {
         return quantity;
@@ -61,19 +61,19 @@ public class Orchard {
         this.price = price;
     }
 
-    public LocalTime getHarvestingtime() {
+    public Date getHarvestingtime() {
         return harvestingtime;
     }
 
-    public void setHarvestingtime(LocalTime harvestingtime) {
+    public void setHarvestingtime(Date harvestingtime) {
         this.harvestingtime = harvestingtime;
     }
 
-    public LocalTime getDeliverytime() {
+    public Date getDeliverytime() {
         return deliverytime;
     }
 
-    public void setDeliverytime(LocalTime deliverytime) {
+    public void setDeliverytime(Date deliverytime) {
         this.deliverytime = deliverytime;
     }
 
@@ -85,19 +85,22 @@ public class Orchard {
         this.numberOfShares = numberOfShares;
     }
 
-    public String getName() {
-        return name;
+
+    public Long getOrchardId() {
+        return orchardId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setOrchardId(Long orchardId) {
+        this.orchardId = orchardId;
     }
 
-    public int getId() {
-        return id;
+    public String getOrchardName() {
+        return orchardName;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setOrchardName(String orchardName) {
+        this.orchardName = orchardName;
     }
+
+
 }
