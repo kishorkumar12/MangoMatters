@@ -1,10 +1,8 @@
 package com.prkat.mangomatters.model;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
-
 @Entity
 @Table(name="Orchard")
 public class Orchard {
@@ -18,16 +16,27 @@ public class Orchard {
     private String address;
     @OneToMany(targetEntity=Variety.class, mappedBy="orchard", fetch=FetchType.EAGER)
     private List<Variety> variety;
-    @Column(name="quantity")
-    private int quantity;
-    @Column(name="price")
-    private BigDecimal price;
-    @Column(name="harvestingtime")
-    private Date harvestingtime;
-    @Column(name="deliverytime")
-    private Date deliverytime;
-    @Column(name="numberOfShares")
-    private int numberOfShares;
+    @Column(name="createDate")
+    private Date createDate;
+    @Column(name="updatedDate")
+    private Date updatedDate;
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(Date updatedDate) {
+        this.updatedDate = updatedDate;
+    }
+
 
     public String getAddress() {
         return address;
@@ -44,47 +53,6 @@ public class Orchard {
     public void setVariety(List<Variety> variety) {
         this.variety = variety;
     }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public Date getHarvestingtime() {
-        return harvestingtime;
-    }
-
-    public void setHarvestingtime(Date harvestingtime) {
-        this.harvestingtime = harvestingtime;
-    }
-
-    public Date getDeliverytime() {
-        return deliverytime;
-    }
-
-    public void setDeliverytime(Date deliverytime) {
-        this.deliverytime = deliverytime;
-    }
-
-    public int getNumberOfShares() {
-        return numberOfShares;
-    }
-
-    public void setNumberOfShares(int numberOfShares) {
-        this.numberOfShares = numberOfShares;
-    }
-
 
     public Long getOrchardId() {
         return orchardId;

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public interface OrchardService {
 @Autowired
-
     public OrchardDto saveOrchard();
 
 

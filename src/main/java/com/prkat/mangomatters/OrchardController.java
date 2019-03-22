@@ -14,14 +14,12 @@ public class OrchardController {
 
     @GetMapping("/mangoes")
     public String myMessage(String m) {
-
         return "ShowListofMangos";
 
     }
 
     @PostMapping(path = "/orchard", consumes = "application/json", produces = "application/json")
     public HttpStatus addOrchard(@RequestBody Orchard orchard) {
-
         return  orchardServiceIml.addOrchard(orchard)?HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
     }
 
@@ -30,10 +28,18 @@ public class OrchardController {
         return orchardServiceIml.getAllOrchidDetails();
     }
 
-    @DeleteMapping(path="/orchard/{id}")
+    @DeleteMapping(path="/orchard/{orchardId}")
     public HttpStatus deleteOrchard(@PathVariable Orchard orchardId){
       orchardServiceIml.deleteOrchard(orchardId);
         return HttpStatus.NO_CONTENT;
+    }
+
+    @PutMapping(path="/orchard/{orchardId}")
+
+        public HttpStatus updateOrhcard(@PathVariable Orchard orchardId){
+            orchardServiceIml.updateOrchard(orchardId);
+            return HttpStatus.NO_CONTENT;
+
     }
 
     }
