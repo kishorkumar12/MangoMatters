@@ -7,27 +7,19 @@ import java.util.Date;
 @Entity
 @Table(name="Variety")
 public class Variety implements Serializable {
+
     @Id
     @GeneratedValue
-    @Column(name="variety_Id")
-    private  int variety_Id;
-    @ManyToOne
-    @JoinColumn(name="orchardId", nullable=false)
-    private Orchard orchard;
+    @Column(name="varietyId")
+    private long varietyId;
+
+    // @ManyToOne
+  //  @JoinColumn(name="orchardId", nullable=false)
+/*
+    private Orchard orchardId;
+*/
     @Column(name="varietyName")
     private String varietyName;
-    @Column(name="createDate")
-    private Date createDate;
-    @Column(name="updatedDate")
-    private Date updatedDate;
-
-    public int getVariety_Id() {
-        return variety_Id;
-    }
-
-    public void setVariety_Id(int variety_Id) {
-        this.variety_Id = variety_Id;
-    }
 
     public String getVarietyName() {
         return varietyName;
@@ -37,30 +29,24 @@ public class Variety implements Serializable {
         this.varietyName = varietyName;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public long getVarietyId() {
+        return varietyId;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Date getUpdatedDate() {
-        return updatedDate;
-    }
-
-    public void setUpdatedDate(Date updatedDate) {
-        this.updatedDate = updatedDate;
+    public void setVarietyId(long varietyId) {
+        this.varietyId = varietyId;
     }
 
 
 
-    public Orchard getOrchard() {
+
+
+    /*public Orchard getOrchard() {
         return orchard;
     }
     public void setOrchard(Orchard orchard) {
         this.orchard = orchard;
-    }
+    }*/
 
 
 }

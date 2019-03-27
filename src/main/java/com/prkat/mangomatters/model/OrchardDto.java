@@ -11,7 +11,9 @@ import java.util.List;
     private Date createDate;
     private Date updatedDate;
     private String address;
+/*
     private List<Variety> variety;
+*/
 
 
     public String getAddress() {
@@ -26,13 +28,15 @@ import java.util.List;
     public void setId(Long orchardId) {
         this.orchardId = orchardId;
     }
-    public List<Variety> getVariety() {
+    /*public List<Variety> getVariety() {
         return variety;
-    }
+    }*/
 
+/*
     public void setVariety(List<Variety> variety) {
         this.variety = variety;
     }
+*/
 
         public Date getCreateDate() {
             return createDate;

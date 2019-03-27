@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class VarietyService {
@@ -18,4 +19,18 @@ public class VarietyService {
     }
 
 
+    @Transactional
+    public List<Variety> getAllVarities() {
+        return (List<Variety>) repository.findAll();
+    }
+
+
+    public void deleteById(long varietyId) {
+        repository.deleteById(varietyId);
+
+    }
+
+    public boolean updateVariety(Variety variety) {
+        return repository.save(variety) != null;
+    }
 }

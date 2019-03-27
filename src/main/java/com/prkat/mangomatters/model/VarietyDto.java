@@ -7,19 +7,20 @@ import java.util.Date;
 
 @Component
 public class VarietyDto {
+    /*
+            private Orchard orchard;
+        */
+    private long varietyId;
+    private String varietyName;
 
-    private Orchard orchard;
-        private String varietyName;
-    private Date createDate;
-    private Date updatedDate;
 
-    public Orchard getOrchard() {
+   /* public Orchard getOrchard() {
         return orchard;
     }
 
     public void setOrchard(Orchard orchard) {
         this.orchard = orchard;
-    }
+    }*/
 
     public String getVarietyName() {
         return varietyName;
@@ -29,21 +30,15 @@ public class VarietyDto {
         this.varietyName = varietyName;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public long getVarietyId() {
+        return varietyId;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setVarietyId(long varietyId) {
+        this.varietyId = varietyId;
     }
 
-    public Date getUpdatedDate() {
-        return updatedDate;
-    }
 
-    public void setUpdatedDate(Date updatedDate) {
-        this.updatedDate = updatedDate;
-    }
 
 
 }

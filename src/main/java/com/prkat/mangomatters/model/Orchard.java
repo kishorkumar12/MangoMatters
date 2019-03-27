@@ -9,35 +9,13 @@ public class Orchard {
     @Id
     @GeneratedValue
     @Column(name="orchardId")
-    private  Long orchardId;
+    private  long orchardId;
     @Column(name="name")
     private String orchardName;
     @Column(name="address")
     private String address;
-    @OneToMany(targetEntity=Variety.class, mappedBy="orchard", fetch=FetchType.EAGER)
-    private List<Variety> variety;
-    @Column(name="createDate")
-    private Date createDate;
-    @Column(name="updatedDate")
-    private Date updatedDate;
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Date getUpdatedDate() {
-        return updatedDate;
-    }
-
-    public void setUpdatedDate(Date updatedDate) {
-        this.updatedDate = updatedDate;
-    }
-
-
+  /*  @OneToMany(targetEntity=Variety.class, mappedBy="orchard", fetch=FetchType.EAGER)
+    private List<Variety> variety;*/
     public String getAddress() {
         return address;
     }
@@ -46,14 +24,14 @@ public class Orchard {
         this.address = address;
     }
 
-    public List<Variety> getVariety() {
+    /*public List<Variety> getVariety() {
         return variety;
     }
 
     public void setVariety(List<Variety> variety) {
         this.variety = variety;
     }
-
+*/
     public Long getOrchardId() {
         return orchardId;
     }
